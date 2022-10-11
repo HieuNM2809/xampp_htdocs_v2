@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+// Document : https://jwt-auth.readthedocs.io/en/develop/laravel-installation/#install-via-composer
