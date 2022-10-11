@@ -26,9 +26,10 @@ class AuthController extends Controller
     public function login()
     {
         $credentials = request(['email', 'password']);
+        $data = request(['email']);
 
         //Auth::guard('admin')
-        if (! $token = auth($this->guard)->attempt($credentials)) {
+        if (! $token = auth($this->guard)->claims($data)->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
