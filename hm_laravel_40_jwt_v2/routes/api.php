@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,11 @@ Route::group([
     Route::post('logout', [AuthController::class, "logout"]);
     Route::post('refresh', [AuthController::class, "refresh"]);
     Route::post('me', [AuthController::class, 'me']);
+    Route::get('test',  function (Request $request){
+        // dd($request);
+
+        // kiểm tra xem có token còn giá trị hay không
+        // Để check middleware
+        return (new AuthController())->me();
+    });
 });
