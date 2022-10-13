@@ -1,9 +1,10 @@
 describe('Test Flow Login Omni', () => {
   it('Open website', ()=> {
-    cy.visit('http://omniagent.fpt.net/')
+    cy.visit('http://omniagent-stag.fpt.net/')
   })
 
   it('Test Text', ()=> {
+    cy.get('h4').should('have.text', 'Chào mừng bạn  đến với OmniAgent')
     cy.get('p').should('have.text', 'Chúc bạn có một ngày làm việc thật tuyệt vời và thoải mái!')
     cy.get('.label-title').should('have.text', 'OmniAgent')
     cy.get(':nth-child(3) > ._label').should('have.text', 'Email')
