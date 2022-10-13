@@ -62,6 +62,21 @@ describe('Test Flow Login Omni', () => {
     cy.get('.btn').click()
     cy.get('#password-error').first().should('have.text', ' Thông tin tài khoản không chính xác, Anh/Chị vui lòng kiểm tra lại thông tin đăng nhập')
   })
+  it('Check Login Correct', ()=> {
+    // reset value
+    cy.get('input[name="email"]').clear()
+    cy.get('input[name="password"]').clear()
+
+    // Điền thông tin form hợp lệ
+    cy.get('input[name="password"]')
+    .type('CNTT@123$%^&*()')
+
+    //Điền thông tin email sai
+    cy.get('input[name="email"]')
+    .type('hieunm47@fpt.com.vn')
+
+    cy.get('.btn').click()
+  })
 
 })
 
