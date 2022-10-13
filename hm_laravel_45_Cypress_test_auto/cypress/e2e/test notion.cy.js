@@ -5,6 +5,8 @@ describe('Test Flow Cntact Sales Notion Tablet', () => {
   // cy.viewport(1920, 1080)
 
   it('Click open menu', ()=> {
+
+    // lệnh click
     cy.get('.menu-toggle').click() 
   })
   it('Open Contect Sales', ()=> {
