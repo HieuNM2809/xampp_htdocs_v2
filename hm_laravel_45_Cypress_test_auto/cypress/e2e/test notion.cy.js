@@ -12,13 +12,13 @@ describe('Test Flow Contect Sales Notion Tablet', () => {
   })
 
   it('Test No Fill Value', ()=> {
-    // cy.get('.jsx-ec2682ece98d48f .submit-wrap .button-size-l').click()
+    cy.get('.jsx-ec2682ece98d48f .submit-wrap .button-size-l').click()
    
   })
   it('Check Email Error', ()=> {
     // cy.get('.jsx-2655736279.jsx-3868764881.input').click()
-    // cy.get('.jsx-2655736279.jsx-3868764881.input')
-    // .invoke('attr', 'value', 'test123')
+    cy.get('.jsx-2655736279.jsx-3868764881.input')
+    .invoke('attr', 'value', 'test123')
 
     cy.get('input[name="email"]')
     .invoke('attr', 'value', 'hieunm47fpt.con.vn')
@@ -38,3 +38,5 @@ describe('Test Flow Contect Sales Notion Tablet', () => {
 // .invoke('attr', 'value', 'hieunm47@fpt.com.vn')
 // cy.get('#password')
 // .invoke('attr', 'value', 'CNTT@123$%^&*()')
+
+
