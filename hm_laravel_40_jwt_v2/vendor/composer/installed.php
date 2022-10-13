@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '068d54369252a8e22a95b360e8616869a1497a93',
+        'reference' => 'e1b0e79edbcf7c4571fcb76dad3e8701d28ffcfa',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -370,7 +370,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '068d54369252a8e22a95b360e8616869a1497a93',
+            'reference' => 'e1b0e79edbcf7c4571fcb76dad3e8701d28ffcfa',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -798,6 +798,15 @@
             'install_path' => __DIR__ . '/../ramsey/uuid',
             'aliases' => array(),
             'reference' => 'a161a26d917604dc6d3aa25100fddf2556e9f35d',
+            'dev_requirement' => false,
+        ),
+        'rap2hpoutre/laravel-log-viewer' => array(
+            'pretty_version' => 'v2.2.0',
+            'version' => '2.2.0.0',
+            'type' => 'laravel-package',
+            'install_path' => __DIR__ . '/../rap2hpoutre/laravel-log-viewer',
+            'aliases' => array(),
+            'reference' => '52e7c703a1e83cdae450f406c7d8472332dfb34e',
             'dev_requirement' => false,
         ),
         'rhumsaa/uuid' => array(

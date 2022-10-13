@@ -53,7 +53,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily', 'single'],
             'ignore_exceptions' => false,
         ],
 
@@ -116,6 +116,12 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+
+        'logs_login' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/logs_login.log'),
         ],
     ],
 

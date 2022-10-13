@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthWebController;
-
+use Illuminate\Support\Facades\Log;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +15,20 @@ use App\Http\Controllers\AuthWebController;
 */
 
 Route::get('/login', [AuthWebController::class , 'login']);
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 
 Route::get('test-convert-token' , function (){
+    $message  = ['id' => 123, 'user_id' => "hehe"];
+    Log::emergency($message);
+    Log::alert($message);
+    Log::critical($message);
+    Log::error($message);
+    Log::warning($message);
+    Log::notice($message);
+    Log::info($message);
+    Log::debug($message);
+
     $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2NjU0NzU1MzcsImV4cCI6MTY2NTQ3OTEzNywibmJmIjoxNjY1NDc1NTM3LCJqdGkiOiJQRU4wNklHcFVqS0s1THNxIiwic3ViIjoiMSIsInBydiI6IjNjODNhNWJlOWE5OTU0ZTZlOTI5YjgxZmNjMWEwYzBlZTcwMTExYTciLCJlbWFpbCI6ImhlaGVAZXhhbXBsZS5vcmcifQ.Ej5pdivqw9NbEDwZbcez6wBao3JhWUcchPEWO6BXo9M';
    return  (json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1])))));
 });
