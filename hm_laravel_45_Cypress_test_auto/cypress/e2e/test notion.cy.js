@@ -57,8 +57,9 @@ describe('Test Flow Cntact Sales Notion Tablet', () => {
     //Điền thông tin email sai
     cy.get('input[name="email"]')
     .type('hieunm47@fpt.com.vn')
-    
-    cy.get('.jsx-448f407d1ced1fc8 > .jsx-2971364727').click()
+    cy.wait(2000)
+    cy.get('.jsx-ec2682ece98d48f').submit()
+    //cy.get('.action-form').submit()
   })
 
 })
