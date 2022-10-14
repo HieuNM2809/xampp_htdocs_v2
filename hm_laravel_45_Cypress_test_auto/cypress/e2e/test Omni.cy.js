@@ -1,6 +1,6 @@
 describe('Test Flow Login Omni', () => {
 
-  var urlTest = "http://omniagent.local/auth/login";
+  var urlTest = "http://omniagent-stag.fpt.net";
   it('Open website', ()=> {
     cy.visit(urlTest)
   })                                                                                                                                                                                                                                                                  
