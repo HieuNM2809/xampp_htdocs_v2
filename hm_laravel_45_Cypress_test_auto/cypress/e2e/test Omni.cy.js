@@ -1,7 +1,9 @@
 describe('Test Flow Login Omni', () => {
+
+  var urlTest = "http://omniagent.local/auth/login";
   it('Open website', ()=> {
-    cy.visit('http://omniagent-stag.fpt.net/')
-  })
+    cy.visit(urlTest)
+  })                                                                                                                                                                                                                                                                  
 
   it('Test Text', ()=> {
     cy.get('h4').should('have.text', 'Chào mừng bạn  đến với OmniAgent')
@@ -50,7 +52,7 @@ describe('Test Flow Login Omni', () => {
     cy.get('.btn').click()
   })
   it('Check Password False', ()=> {
-    cy.visit('http://omniagent.fpt.net/')
+    cy.visit(urlTest)
   
     cy.get('input[name="email"]')
     .type('hieunm47@fpt.com.vn')
