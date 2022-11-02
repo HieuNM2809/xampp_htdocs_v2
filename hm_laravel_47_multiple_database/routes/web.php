@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Models\TestDatabase;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/database1', function () {
+    return  DB::table("users")->get();
+
 });
+Route::get('/database2', function () {
+
+    // thêm prefix connection để connect database mong muốn
+    // return  DB::connection('mysql2')->table("user")->get();
+    return TestDatabase::all();
+
+});
+
+
+// $Model = new Article;
+// $Model->setConnection('mysql2');
+// $find = $Model->find(1);
+// return $find;
+
+// Schema::connection('mysql2')->create('articles', function (Blueprint $table) {
+//     $table->increments('id');
+//     $table->string('title');
+//     $table->string('body')->nullable();
+//     $table->timestamps();
+// });
