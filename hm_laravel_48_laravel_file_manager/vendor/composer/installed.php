@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c9a2a398a9cf18e34cdee04124e04655b6eddcc4',
+        'reference' => '3b7a111eb21f42d3c97443d6b8d0204982e4689e',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -397,7 +397,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c9a2a398a9cf18e34cdee04124e04655b6eddcc4',
+            'reference' => '3b7a111eb21f42d3c97443d6b8d0204982e4689e',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -1266,6 +1266,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => '4348a3a06651827a27d989ad1d13efec6bb49b19',
+            'dev_requirement' => false,
+        ),
+        'unisharp/laravel-filemanager' => array(
+            'pretty_version' => 'v2.5.1',
+            'version' => '2.5.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../unisharp/laravel-filemanager',
+            'aliases' => array(),
+            'reference' => '9e9022747832fb862a15bdafd4e6fdd564f10c82',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
