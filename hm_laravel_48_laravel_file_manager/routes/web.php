@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('filemanager', [TestController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,4 +21,5 @@ Route::get('/', function () {
 
 
 // https://www.itsolutionstuff.com/post/laravel-file-manager-tutorial-step-by-stepexample.html
-// Link tutorial 
+// https://www.itsolutionstuff.com/post/laravel-file-manager-tutorial-step-by-stepexample.html
+// Link tutorial
