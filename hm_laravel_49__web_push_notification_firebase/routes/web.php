@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebNotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Link tutorial
+//https://www.positronx.io/laravel-send-web-push-notification-using-firebase-tutorial/
+
+
+Route::get('/push-notificaiton', [WebNotificationController::class, 'index'])->name('push-notificaiton');
+Route::post('/store-token', [WebNotificationController::class, 'storeToken'])->name('store.token');
+Route::post('/send-web-notification', [WebNotificationController::class, 'sendWebNotification'])->name('send.web-notification');
+
