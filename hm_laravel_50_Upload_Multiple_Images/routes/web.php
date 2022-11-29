@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,8 @@ Route::get('/', function () {
 
 
 // web.php
-Route::get('form','FormController@create');
-Route::post('form','FormController@store');
+Route::get('form',[FormController::class, 'create']);
+Route::post('form',[FormController::class , 'store']);
 
 
 // https://appdividend.com/2022/02/28/laravel-multiple-images-upload/

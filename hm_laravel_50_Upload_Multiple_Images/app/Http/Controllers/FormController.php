@@ -19,7 +19,7 @@ class FormController extends Controller
         $this->validate($request, [
 
             'filename' => 'required',
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8048'
 
         ]);
 
@@ -34,7 +34,6 @@ class FormController extends Controller
 
         $form = new Form();
         $form->filename = json_encode($data);
-
 
         $form->save();
 
