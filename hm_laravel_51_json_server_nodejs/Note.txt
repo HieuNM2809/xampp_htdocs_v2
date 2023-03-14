@@ -1,0 +1,36 @@
+=== JSON SERVER ===
+    B1: Thêm như viện : npm i json-server
+
+    B2: Start server  : json-server --watch db.json
+
+    Note: nếu lỗi chạy với admin:  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+=== CHẠY THƯ MỤC TĨNH ===
+    json-server db.json --static ./some-other-dir ( mặc đinh thư mục public/index.js )
+
+=== ROUTE ===
+    {
+      "/api/*": "/$1",
+      "/:resource/:id/show": "/:resource/:id",
+      "/posts/:category": "/posts?category=:category",
+      "/articles\\?id=:id": "/posts/:id"
+    }
+    /api/posts # → /posts
+    /api/posts/1  # → /posts/1
+    /posts/1/show # → /posts/1
+    /posts/javascript # → /posts?category=javascript
+    /articles?id=1 # → /posts/1
+
+    json-server db.json --routes routes.json
+
+=== Middleware ===
+
+
+=== Config file ===
+
+
+
+
+Doc: https://www.npmjs.com/package/json-server
+     https://github.com/typicode/json-server
+
