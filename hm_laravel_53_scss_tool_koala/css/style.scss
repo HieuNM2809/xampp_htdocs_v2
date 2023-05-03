@@ -1,0 +1,26 @@
+$color_1: red;
+$background-color_1: green;
+
+.danger {
+	color: $color_1;
+	font-size: 25px;
+	font-weight: bold;
+	border: 1px solid blue;
+	padding: 10px;
+	background-color: $background-color_1;
+}
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+		padding: 6px 12px;
+		text-decoration: none;
+	}
+}
