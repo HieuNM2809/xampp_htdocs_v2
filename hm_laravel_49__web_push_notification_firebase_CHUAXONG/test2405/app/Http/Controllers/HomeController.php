@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Kutia\Larafirebase\Facades\Larafirebase;
 use App\Notifications\SendPushNotification;
+use Illuminate\Notifications\Notification;
 
 class HomeController extends Controller
 {
@@ -49,31 +50,16 @@ class HomeController extends Controller
         ]);
 
         try{
-//            $fcmTokens = User::whereNotNull('fcm_token')->pluck('fcm_token')->toArray();
 
-            //Notification::send(null,new SendPushNotification($request->title,$request->message,$fcmTokens));
-
-            /* or */
-
-//            auth()->user()->notify(new SendPushNotification($request->title,$request->message,$fcmTokens));
-
-            /* or */
-//
-//            Larafirebase::withTitle($request->title)
-//                ->withBody($request->message)
-//                ->sendMessage($fcmTokens);
-//
-//            return json_encode('success');
-//            return redirect()->back()->with('success','Notification Sent Successfully!!');
-            $firebaseToken = User::whereNotNull('fcm_token')->pluck('fcm_token')->toArray();
+            $fcmTokens = User::whereNotNull('fcm_token')->pluck('fcm_token')->toArray();
 
             $SERVER_API_KEY = env('FIREBASE_SERVER_KEY');
 
             $data = [
-                "registration_ids" => $firebaseToken,
+                "registration_ids" => $fcmTokens,
                 "notification" => [
                     "title" => $request->title,
-                    "message" => $request->message,
+                    "body" => $request->message,
                 ]
             ];
             $dataString = json_encode($data);
@@ -95,6 +81,22 @@ class HomeController extends Controller
             $response = curl_exec($ch);
 
             dd($response);
+
+            //Notification::send(null,new SendPushNotification($request->title,$request->message,$fcmTokens));
+
+            /* or */
+
+//            auth()->user()->notify(new SendPushNotification($request->title,$request->message,$fcmTokens));
+
+            /* or */
+//
+//            Larafirebase::withTitle($request->title)
+//                ->withBody($request->message)
+//                ->sendMessage($fcmTokens);
+//
+//            return json_encode('success');
+//            return redirect()->back()->with('success','Notification Sent Successfully!!');
+
 
         }catch(\Exception $e){
             return json_encode($e->getMessage());
