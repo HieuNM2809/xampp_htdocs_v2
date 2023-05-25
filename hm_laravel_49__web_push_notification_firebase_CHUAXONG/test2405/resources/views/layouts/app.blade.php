@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -93,15 +94,12 @@
             measurementId: "G-TRE5CJBL0S"
         };
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
+        const app = firebase.initializeApp(firebaseConfig);
         const messaging = firebase.messaging();
 
-        function initFirebaseMessagingRegistration() {
-            messaging.requestPermission().then(function () {
-                return messaging.getToken()
-            }).then(function(token) {
-
+        async function initFirebaseMessagingRegistration() {
+            try {
+                let token = await  messaging.getToken();
                 axios.post("{{ route('fcmToken') }}",{
                     _method:"PATCH",
                     token
@@ -110,16 +108,21 @@
                 }).catch(({response:{data}})=>{
                     console.error(data)
                 })
-
-            }).catch(function (err) {
-                console.log(`Token Error :: ${err}`);
-            });
+            }catch (e) {
+                console.log(`Token Error :: ${e}`);
+            }
         }
 
         initFirebaseMessagingRegistration();
 
-        messaging.onMessage(function({data:{body,title}}){
-            new Notification(title, {body});
+        messaging.onMessage(function(data){
+            console.log(data)
+            let { notification } = data;
+            if(notification.title == 'change-color'){
+                $('.card-header').css('color',notification.body);
+            }else{
+                alert(notification.body);
+            }
         });
     </script>
 </body>

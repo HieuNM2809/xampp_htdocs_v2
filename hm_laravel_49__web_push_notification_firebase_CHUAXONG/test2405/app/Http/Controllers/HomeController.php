@@ -52,6 +52,7 @@ class HomeController extends Controller
         try{
 
             $fcmTokens = User::whereNotNull('fcm_token')->pluck('fcm_token')->toArray();
+//            $fcmTokens = User::whereNotNull('fcm_token')->where('id',2)->pluck('fcm_token')->toArray();
 
             $SERVER_API_KEY = env('FIREBASE_SERVER_KEY');
 

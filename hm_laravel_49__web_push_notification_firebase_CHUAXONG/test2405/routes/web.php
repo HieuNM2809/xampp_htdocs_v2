@@ -34,3 +34,7 @@ Route::get('/send-notification',[HomeController::class,'notification'])->name('n
 //https://techvblogs.com/blog/firebase-push-notification-laravel
 //https://console.firebase.google.com/u/0/project/test2405-a17a8/overview
 
+//http://localhost:8000/send-notification?title=change-color&message=red
+
+// LƯU Ý: firebase không chạy được trên trình duyệt ẩn danh
+
