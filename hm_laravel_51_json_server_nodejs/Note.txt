@@ -1,7 +1,7 @@
 === JSON SERVER ===
     B1: Thêm như viện : npm i json-server
 
-    B2: Start server  : json-server --watch db.json
+    B2: Start server  : json-server --watch db.json --port 3004
 
     Note: nếu lỗi chạy với admin:  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
