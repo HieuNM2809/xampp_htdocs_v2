@@ -24,6 +24,7 @@ Route::resource('books',BookController::class);
 //https://www.webappfix.com/post/mongodb-database-connection-in-laravel.html
 //https://www.itsolutionstuff.com/post/laravel-5-mongodb-crud-tutorialexample.html
 //https://github.com/jenssegers/Laravel-MongoDB#inserts-updates-and-deletes
+//https://pecl.php.net/package/mongodb/1.13.0/windows
 
 // 1. Thêm thư viên mongodb.all
 
