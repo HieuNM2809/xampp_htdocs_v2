@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,14 @@ Route::get('/', function () {
 });
 
 
+
+
+// 1.0. Authen
 //https://blog.logrocket.com/laravel-passport-a-tutorial-and-example-build/
+
+//1.1. Authen
+//https://www.toptal.com/laravel/passport-tutorial-auth-user-access
+
 
 // ------------------- composer require laravel/passport -W
 // Trong Laravel, tùy chọn -W khi chạy lệnh composer là viết tắt của --update-with-dependencies. Khi bạn thêm tùy chọn này vào lệnh composer require,
