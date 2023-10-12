@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//https://www.itsolutionstuff.com/post/laravel-telescope-installation-and-configuration-tutorialexample.html
