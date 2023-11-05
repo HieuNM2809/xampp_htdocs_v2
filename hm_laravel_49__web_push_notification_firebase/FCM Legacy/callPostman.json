@@ -1,0 +1,14 @@
+curl --location 'https://fcm.googleapis.com/fcm/send' \
+--header 'Authorization: key=AAAASHmd7kg:APA91bEJl39WXWapAGHLsVRDS3cTVF25t0-PvSQ0x2aondxpkBOqtaBCiTNv6un7sZiOpejY7r1mmGg3-RC6nY3NtMe5HGNIU9EV4GCMPBcRYNFMkMpMIddifINa4ULTeOvh6u-Rg0ew' \
+--header 'Content-Type: application/json' \
+--data '{
+    "data": {
+        "hehe1": "Tiêu đề1",
+        "hehe2": "Nội dung2"
+    },
+    "notification": {
+        "title": "Tiêu đề thông báo",
+        "body": "Nội dung thông báo"
+    },
+    "to": "er5KXz4pGPpKUWfJ-ETTpy:APA91bEtxolqNR-E5_rTMEtk6uwgqTSfzfsgwInVut8lHv51bgbV6yZ52QDpr0EQv9ltfxztb1h07FLT3wQvR2rrluHtkWbA0Mrk3EpgTo30v-k3nSsAo15WAoxfNOik3JM4R_ksPg9Z"
+}'
