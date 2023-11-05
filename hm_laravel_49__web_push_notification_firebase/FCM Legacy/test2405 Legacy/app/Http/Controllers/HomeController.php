@@ -32,7 +32,12 @@ class HomeController extends Controller
 
     public function updateToken(Request $request){
         try{
-            $request->user()->update(['fcm_token'=>$request->token]);
+            User::create([
+                'name'      => rand() . "Name",
+                'email'     => rand() . "@gmail.com",
+                'password'  => rand() . "password",
+                'fcm_token' => $request->token
+            ]);
             return response()->json([
                 'success'=>true
             ]);
@@ -43,6 +48,13 @@ class HomeController extends Controller
             ],500);
         }
     }
+
+    // Nếu có forcus web thì chạy vào luông code nhúng, còn lại chạy nền trong file firebase-messaging-sw
+
+    // Nếu có gửi key "notification"
+    // + Nếu chạy nền thì mặc định gửi ( và có thể custom lại trong file firebase-messaging-sw)
+    // + Nếu đang dùng trang thì chỉnh code nhúng vào
+
     public function notification(Request $request){
         $request->validate([
             'title'=>'required',
@@ -50,17 +62,19 @@ class HomeController extends Controller
         ]);
 
         try{
-
             $fcmTokens = User::whereNotNull('fcm_token')->pluck('fcm_token')->toArray();
 //            $fcmTokens = User::whereNotNull('fcm_token')->where('id',2)->pluck('fcm_token')->toArray();
-
             $SERVER_API_KEY = env('FIREBASE_SERVER_KEY');
 
             $data = [
                 "registration_ids" => $fcmTokens,
-                "notification" => [
-                    "title" => $request->title,
-                    "body" => $request->message,
+//                "notification" => [
+//                    "title" => $request->title,
+//                    "body" => $request->message,
+//                ],
+                "data" => [
+                    "data1" => 1,
+                    "data2" => 1,
                 ]
             ];
             $dataString = json_encode($data);

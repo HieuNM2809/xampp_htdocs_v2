@@ -38,3 +38,11 @@ Route::get('/send-notification',[HomeController::class,'notification'])->name('n
 
 // LƯU Ý: firebase không chạy được trên trình duyệt ẩn danh
 
+
+// Nếu có forcus web thì chạy vào luông code nhúng, còn lại chạy nền trong file firebase-messaging-sw
+
+// Nếu có gửi key "notification"
+// + Nếu chạy nền thì mặc định gửi ( và có thể custom lại trong file firebase-messaging-sw)
+// + Nếu đang dùng trang thì chỉnh code nhúng vào
+
+

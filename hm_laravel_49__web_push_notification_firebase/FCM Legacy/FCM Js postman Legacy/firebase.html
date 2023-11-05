@@ -58,18 +58,21 @@
                 });
 
             messaging.onMessage(function(payload) {
-                console.log('Message received. ', payload);
+                console.log('Message received. ', JSON.stringify(payload) );
                 NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload) 
 
-                response = payload.hasOwnProperty('notification') ? payload.notification : payload.data;
 
-                notificationTitle = response.title;
-                notificationOptions = {
-                    body: response.body,
-                    icon: response.icon,
-                    image: response.image
-                };
-                var notification = new Notification(notificationTitle,notificationOptions);
+                // Nếu check code thì 
+                // response = payload.hasOwnProperty('notification') ? payload.notification : payload.data;
+
+                // console.log(response);
+                // notificationTitle = response.title;
+                // notificationOptions = {
+                //     body: response.body,
+                //     icon: response.icon,
+                //     image: response.image
+                // };
+                // var notification = new Notification(notificationTitle,notificationOptions);
             });
         </script>
     </body>
