@@ -1,0 +1,20 @@
+// https://pusher.com/docs/beams/reference/publish-api/
+
+curl --location 'https://244be080-1f1c-4530-91e6-36669348296f.pushnotifications.pusher.com/publish_api/v1/instances/244be080-1f1c-4530-91e6-36669348296f/publishes/interests' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer 0C502AFFFBDEEE3F2CB039A1A5E43A5B87650EC0992BE1FD79EC7BEFEA1F840F' \
+--data '{
+"interests": [
+"HieuNM47"
+],
+"web": {
+"time_to_live": 3600,
+"notification": {
+"title": "You have a new message",
+"body": "Hi!",
+"icon": "https://freepngimg.com//thumb/the_legend_of_zelda/21552-3-zelda-link.png",
+"deep_link": "https://example.com/messages?message_id=2342",
+"hide_notification_if_site_has_focus": true
+}
+}
+}'
