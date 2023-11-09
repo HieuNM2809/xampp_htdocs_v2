@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Client app</title>
+        <style>
+            div {
+                margin-bottom: 15px;
+            }
+        </style>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"></script>
+
+
+        <script>
+            // web app's firebase config
+            var firebaseConfig = {
+                apiKey: "AIzaSyBlC7KAI7qAURLqJBj7-HqXAOxCCQxCbmo",
+                authDomain: "test0411-c4b9e.firebaseapp.com",
+                projectId: "test0411-c4b9e",
+                storageBucket: "test0411-c4b9e.appspot.com",
+                messagingSenderId: "311278038600",
+                appId: "1:311278038600:web:c1dc21981357a6511c727d",
+                measurementId: "G-FYP40CQ2TH"
+            };
+
+            // initialize firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+    </head>
+    
+    <body>
+        <div id="token"></div>
+        <div id="msg"></div>
+        <div id="notis"></div>
+        <div id="err"></div>
+        <script>
+            MsgElem = document.getElementById('msg');
+            TokenElem = document.getElementById('token');
+            NotisElem = document.getElementById('notis');
+            ErrElem = document.getElementById('err');
+
+            const messaging = firebase.messaging();
+            messaging.requestPermission()
+                .then(function () {
+                    MsgElem.innerHTML = 'Notification permission granted.' 
+                    console.log('Notification permission granted.');
+
+                    // get the token in the form of promise
+                    return messaging.getToken()
+                })
+                .then(function(token) {
+                    TokenElem.innerHTML = 'token: ' + token
+                })
+                .catch(function (err) {
+                    ErrElem.innerHTML =  ErrElem.innerHTML + '; ' + err
+                    console.log('Unable to get permission to notify.', err);
+                });
+
+            messaging.onMessage(function(payload) {
+                console.log('Message received. ', JSON.stringify(payload) );
+                NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload) 
+
+
+                // Nếu check code thì 
+                // response = payload.hasOwnProperty('notification') ? payload.notification : payload.data;
+
+                // console.log(response);
+                // notificationTitle = response.title;
+                // notificationOptions = {
+                //     body: response.body,
+                //     icon: response.icon,
+                //     image: response.image
+                // };
+                // var notification = new Notification(notificationTitle,notificationOptions);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client app</title>
+    <style>
+        div {
+            margin-bottom: 15px;
+        }
+    </style>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-messaging.js"></script> -->
+</head>
+
+<body>
+    <div id="token"></div>
+    <div id="msg"></div>
+    <div id="notis"></div>
+    <div id="err"></div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+    
+        let MsgElem, TokenElem, NotisElem, ErrElem; // Định nghĩa biến ở phạm vi toàn cục
+
+        MsgElem = document.getElementById('msg');
+        TokenElem = document.getElementById('token');
+        NotisElem = document.getElementById('notis');
+        ErrElem = document.getElementById('err');
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBlC7KAI7qAURLqJBj7-HqXAOxCCQxCbmo",
+            authDomain: "test0411-c4b9e.firebaseapp.com",
+            projectId: "test0411-c4b9e",
+            storageBucket: "test0411-c4b9e.appspot.com",
+            messagingSenderId: "311278038600",
+            appId: "1:311278038600:web:c1dc21981357a6511c727d",
+            measurementId: "G-FYP40CQ2TH"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // const messaging = getMessaging(app);
+
+        // messaging.requestPermission()
+        //     .then(function () {
+        //         MsgElem.innerHTML = 'Notification permission granted.';
+        //         console.log('Notification permission granted.');
+
+        //         // Get the token as a promise
+        //         return getToken(messaging);
+        //     })
+        //     .then(function (token) {
+        //         TokenElem.innerHTML = 'Token: ' + token;
+        //     })
+        //     .catch(function (err) {
+        //         ErrElem.innerHTML = ErrElem.innerHTML + '; ' + err;
+        //         console.log('Unable to get permission to notify.', err);
+        //     });
+
+        // onBackgroundMessage(messaging, function (payload) {
+        //     console.log('Message received. ', payload);
+        //     NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload);
+
+        //     const notification = {
+        //         title: payload.notification.title,
+        //         body: payload.notification.body,
+        //         icon: payload.notification.icon,
+        //         image: payload.notification.image
+        //     };
+
+        //     self.registration.showNotification(notification.title, notification);
+        // });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+///https://github.com/kreait/laravel-firebase
+//https://www.iankumu.com/blog/laravel-firebase/
